@@ -17,6 +17,7 @@ jobs:
 
     # 各ステップの定義
     steps:
-      # ステップの定義
-      # runで、任意のコマンドを実行できる
-      - run: echo hello world !!!
+      # ステップの名称
+      - name: echo hello world
+        # runで、任意のコマンドを実行できる
+        run: echo hello world !!!
