@@ -20,4 +20,4 @@ jobs:
       # ステップの名称
       - name: echo hello world
         # runで、任意のコマンドを実行できる
-        run: echo hello world !!!
+        run: sleep 60; echo hello world !!!
