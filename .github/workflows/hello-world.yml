@@ -20,4 +20,5 @@ jobs:
       # ステップの名称
       - name: echo hello world
         # runで、任意のコマンドを実行できる
+        # 短すぎる場合、課金対象にされない場合があるため、sleepコマンドで遅延させる
         run: sleep 60; echo hello world !!!
