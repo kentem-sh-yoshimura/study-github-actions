@@ -1,0 +1,27 @@
+name: use-env
+
+on:
+  workflow_dispatch:
+
+env:
+  WORKFLOW_ENV: "workflow_env"
+
+jobs:
+  use-env:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      JOB_ENV: "job_env"
+
+    steps:
+      - run: echo WORKFLOW_ENV=${{ env.workflow_env }}
+
+      - run: echo JOB_ENV=${{ env.job_env }}
+
+      - run: echo STEP_ENV=${{ env.STEP_ENV }}
+        env:
+          STEP_ENV: "step_env"
+
+      - run: echo REPOSITORY_VARIABLES=${{ vars.REPOSITORY_VARIABLES }}
+
+      - run: echo REPOSITORY_SECRETS=${{ secrets.REPOSITORY_SECRETS }}

@@ -17,8 +17,9 @@ jobs:
 
     # 各ステップの定義
     steps:
-      # ステップの名称
+      # ステップの名称（省略可能）
       - name: echo hello world
         # runで、任意のコマンドを実行できる
+        # 実行可能なコマンドはOSに依存する
         # 短すぎる場合、課金対象にされない場合があるため、sleepコマンドで遅延させる
         run: sleep 60; echo hello world !!!

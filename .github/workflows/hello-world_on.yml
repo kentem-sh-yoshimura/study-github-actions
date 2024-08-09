@@ -1,0 +1,23 @@
+name: hello-world_mac
+
+on:
+  push:
+    branches:
+      - main
+    # paths:
+    #   - ./src
+  pull_request:
+    branches:
+      - main
+  schedule:
+    # 月～金の5：00(JST)に実行
+    - cron: '0 20 * * 0,1,2,3,4'
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: echo hello world
+        run: echo hello world !!!

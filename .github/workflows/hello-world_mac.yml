@@ -5,6 +5,7 @@ on:
 
 jobs:
   hello-world:
+    # ここをmacosにする
     runs-on: macos-latest
     timeout-minutes: 10
 
