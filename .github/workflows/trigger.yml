@@ -1,0 +1,26 @@
+name: trigger
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, reopened, closed]
+    branches:
+      - main
+  schedule:
+    # 月～金の5：00(JST)に実行
+    - cron: '0 20 * * 0,1,2,3,4'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - run: sleep 60
+      - name: event_name
+        run: echo ${{github.event_name}}
+      - name: event.action
+        run: echo ${{github.event.action}}
