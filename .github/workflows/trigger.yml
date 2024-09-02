@@ -19,7 +19,6 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - run: sleep 60
       - name: event_name
         run: echo ${{github.event_name}}
       - name: event.action
