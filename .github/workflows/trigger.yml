@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - "main"
+      - main
   pull_request:
     types: [opened, reopened, closed]
     branches:
-      - develop
+      - main
   schedule:
     # 月～金の5：00(JST)に実行
     - cron: '0 20 * * 0,1,2,3,4'
