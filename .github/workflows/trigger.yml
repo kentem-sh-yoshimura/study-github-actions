@@ -22,5 +22,5 @@ jobs:
       - run: sleep 60
       - name: event_name
         run: echo ${{github.event_name}}
-      - name: event_type
-        run: echo ${{github.event_type}}
+      - name: event.action
+        run: echo ${{github.event.action}}
