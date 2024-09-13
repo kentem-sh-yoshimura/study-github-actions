@@ -1,0 +1,39 @@
+name: use-artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload-artifact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # 成果物にしたいフォルダを作成
+      - run: mkdir test
+      - run: touch test/dummy-file
+
+      # ディレクトリ状態を確認
+      - run: ls -l
+
+      # 成果物をアップロード
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Test
+          path: test
+
+  download-artifact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # ジョブを直列に動かすために前提ジョブを指定
+    needs: upload-artifact
+
+    steps:
+        - run: ls -l
+
+        # 成果物をダウンロード
+        - uses: actions/download-artifact@v4
+          with:
+            name: Test
+
+        - run: ls -l
