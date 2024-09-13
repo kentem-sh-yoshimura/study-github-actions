@@ -11,11 +11,15 @@ jobs:
     steps:
       # キャッシュの利用を設定
       - uses: actions/cache@v4
-        # idの設定は任意だが、設定しておくと後続ステップで、キャッシュhitの判定が可能
+        # idの設定は任意
+        # 設定しておくと後続ステップで、キャッシュhitの判定が可能
         id: dummy-id
         with:
+          # キャッシュ保存したいファイル/ディレクトリのパス
           path: dummy-file
+          # キャッシュのキー
           key: dummy-key
+          # キャッシュのリストア用のキー（任意）
           restore-keys: dummy-
 
       # ディレクトリ状態を確認
