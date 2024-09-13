@@ -1,0 +1,30 @@
+name: use-cache
+
+on:
+  workflow_dispatch:
+
+jobs:
+  use-cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # キャッシュの利用を設定
+      - uses: actions/cache@v4
+        # idの設定は任意だが、設定しておくと後続ステップで、キャッシュhitの判定が可能
+        id: dummy-id
+        with:
+          path: dummy-file
+          key: dummy-key
+          restore-keys: dummy-
+
+      # ディレクトリ状態を確認
+      - run: ls -l
+
+      # キャッシュがなかったときはキャッシュ対象を作成
+      - if: steps.dummy-id.outputs.cache-hit != 'true'
+        run: touch dummy-file
+
+      # キャッシュがあったとき
+      - if: steps.dummy-id.outputs.cache-hit == 'true'
+        run: echo キャッシュあったよ
