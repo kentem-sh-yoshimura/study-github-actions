@@ -35,5 +35,6 @@ jobs:
         - uses: actions/download-artifact@v4
           with:
             name: Test
+            path: test
 
         - run: ls -l
