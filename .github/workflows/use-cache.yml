@@ -18,9 +18,11 @@ jobs:
           # キャッシュ保存したいファイル/ディレクトリのパス
           path: dummy-file
           # キャッシュのキー
-          key: dummy-key
+          key: dummy-sample-key
           # キャッシュのリストア用のキー（任意）
-          restore-keys: dummy-
+          restore-keys: |
+            dummy-sample-
+            dummy-
 
       # ディレクトリ状態を確認
       - run: ls -l
