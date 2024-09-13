@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      # 成果物にしたいフォルダを作成
+      # 成果物にしたいディレクトリを作成
       - run: mkdir test
       - run: touch test/dummy-file
 
